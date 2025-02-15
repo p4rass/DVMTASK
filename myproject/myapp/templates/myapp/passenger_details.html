@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passenger Details</title>
+</head>
+<body>
+    <h2>Passenger {{ current_passenger }} of {{ num_tickets }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if current_passenger < num_tickets %}
+            <button type="submit">Next Passenger</button>
+        {% else %}
+            <button type="submit">Confirm Booking</button>
+        {% endif %}
+    </form>
+</body>
+</html>

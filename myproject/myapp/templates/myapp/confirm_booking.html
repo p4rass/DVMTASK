@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Booking</title>
+</head>
+<body>
+    <h2>Confirm Booking</h2>
+    <p>Total Fare: ${{ total_fare }}</p>
+    <h3>Passengers:</h3>
+    <ul>
+        {% for passenger in passengers %}
+            <li>{{ passenger.name }} (Age: {{ passenger.age }})</li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Payment</button>
+    </form>
+</body>
+</html>

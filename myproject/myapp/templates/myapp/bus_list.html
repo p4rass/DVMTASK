@@ -1,0 +1,10 @@
+<h1>Available Buses</h1>
+<ul>
+    {% for bus in buses %}
+        <li>
+            <a href="{% url 'book_ticket' bus.id %}">
+                {{ bus.bus_number }} - {{ bus.source }} to {{ bus.destination }} ({{ bus.departure_time }})
+            </a>
+        </li>
+    {% endfor %}
+</ul>

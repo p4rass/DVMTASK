@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <a href="{% url 'add_bus' %}">Add New Bus</a>
+    <h3>List of Buses</h3>
+    <ul>
+        {% for bus in buses %}
+            <li>
+                <strong>{{ bus.bus_number }}</strong> - {{ bus.source }} to {{ bus.destination }}<br>
+                Departure: {{ bus.departure_time }}<br>
+                Fare: ${{ bus.fare }}<br>
+                Available Seats: {{ bus.available_seats }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

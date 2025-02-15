@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success</title>
+</head>
+<body>
+    <h2>Booking Successful!</h2>
+    <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+    <p><strong>Bus:</strong> {{ booking.bus.bus_number }} - {{ booking.bus.source }} to {{ booking.bus.destination }}</p>
+    <p><strong>Total Fare:</strong> ${{ booking.total_fare }}</p>
+    <p><strong>Wallet Balance:</strong> ${{ wallet_balance }}</p>
+
+    <h3>Passengers:</h3>
+    <ul>
+        {% for passenger in passengers %}
+            <li>{{ passenger.name }} (Age: {{ passenger.age }}, Gender: {{ passenger.gender }})</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'ticket_booking' %}">Book Another Ticket</a>
+</body>
+</html>

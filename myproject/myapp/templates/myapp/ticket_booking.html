@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Tickets</title>
+</head>
+<body>
+    <h2>Search Buses</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if buses %}
+        <h3>Available Buses</h3>
+        {% for bus in buses %}
+            <div>
+                <p>{{ bus.bus_number }} | {{ bus.source }} to {{ bus.destination }}</p>
+                <a href="{% url 'passenger_details' bus.id %}?num_tickets={{ num_tickets }}">Book Now</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
